@@ -1,0 +1,14 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: ${springboot.app.name:eureka-server}
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: ${springboot.app.name:eureka-server}
+  client:
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://${registry.host:localhost}:${server.port}/eureka/
